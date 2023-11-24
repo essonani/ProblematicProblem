@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Threading;
 
 namespace ProblematicProblem
@@ -10,12 +11,12 @@ namespace ProblematicProblem
      static bool cont = true;
         static List<string> activities = new List<string>() { "Movies", "Paintball", "Bowling", "Lazer Tag", "LAN Party", "Hiking", "Axe Throwing", "Wine Tasting" };
         static void Main(string[] args)
-{
+        {
             Random rng=new Random();
             Console.Write("Hello, welcome to the random activity generator! \nWould you like to generate a random activity? yes/no: ");
             var contresponse=Console.ReadLine();
-            while (contresponse == "yes")
-            {
+          //  while (contresponse == "yes")
+           // {
                 if (contresponse == "yes")
                 {
                     cont = true;
@@ -86,9 +87,11 @@ namespace ProblematicProblem
                     }
                     Console.Write($"Ah got it! {userName}, your random activity is: {randomActivity}! Is this ok or do you want to grab another activity? Keep/Redo: ");
                     Console.WriteLine();
-                    cont = (Console.ReadLine() == "redo") ? true : false;
+                    cont = (Console.ReadLine().ToLower() == "redo") ? true : false;
+                  
+
                 }
-            }
+         //   }
             Console.WriteLine("goodbye");
         }
     }
